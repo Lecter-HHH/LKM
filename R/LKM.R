@@ -132,7 +132,22 @@ logit_table <- function(y,exp,cor,data){
 }
 # ------------------------------------------------------------------------------
 
-
+logit_test <- function(y,exp,cor,data){
+  for(i in 1:length(y)){
+    for(j in 1:length(exp)){
+      for(k in 1:length(cor)){
+        library(dplyr)
+        formula <- paste(y[i],"~",exp[j],"+",
+                         paste(cor[[k]], collapse = "+", sep = " "),sep = "")
+        model <- glm(formula, data = data, family = "binomial")
+        p <- tbl_regression(model, exponentiate = T, #这里指数化，求OR值
+                            pvalue_fun = function(x) style_pvalue(x, digits=3),
+        ) %>% modify_caption(paste("Model :",formula))
+        print(p)
+      }
+    }
+  }
+}
 
 
 
