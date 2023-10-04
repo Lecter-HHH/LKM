@@ -140,5 +140,3 @@ logit_table <- function(y,exp,cor,data){
 
 
 
-
-
