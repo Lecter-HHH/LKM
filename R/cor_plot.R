@@ -29,7 +29,7 @@ cor_plot <- function(exp,outc,result){
   colnames(cor_freq) <- c("Covariates", "Frequency")
   # 按出现频率降序排序
   cor_freq$Covariates <- reorder(cor_freq$Covariates, -cor_freq$Frequency)
-  cor_freq$group <- paste("Exposure : ",x,"    Outcome : ", y, sep = " ")
+  cor_freq$group <- paste("Exposure : ",exp,"    Outcome : ", outc, sep = " ")
   # 协变量排行榜绘图
   p <- ggplot(data = cor_freq,mapping = aes(x = Covariates,y = Frequency))+
     geom_bar(stat = "identity")+
