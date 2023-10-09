@@ -4,7 +4,7 @@
 \alias{logit_auto_cor}
 \title{logit_auto_cor:Batch build logistic regression models with all possible combinations of covariates.}
 \usage{
-logit_auto_cor(outc, exp, cor, data)
+logit_auto_cor(outc, exp, cor, data, only_sig)
 }
 \arguments{
 \item{outc}{outc should be a vector containing all outcome variables, such as c("A","B").}
@@ -14,6 +14,8 @@ logit_auto_cor(outc, exp, cor, data)
 \item{cor}{cor should be a vector containing all covariates, such as c("E","F").}
 
 \item{data}{data should be a data.frame containing all relevant variables.}
+
+\item{only_sig}{only_sig should be TRUE or FALSE value.}
 }
 \description{
 logit_auto_cor:Batch build logistic regression models with all possible combinations of covariates.

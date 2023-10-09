@@ -4,12 +4,13 @@
 #' @param exp exp should be a vector containing all exposure variables, such as c("C","D").
 #' @param cor cor should be a vector containing all covariates, such as c("E","F").
 #' @param data data should be a data.frame containing all relevant variables.
+#' @param only_sig only_sig should be TRUE or FALSE value.
 #'
 #' @return
 #' @export
 #'
 #' @examples
-lm_auto_cor <- function(outc,exp,cor,data){
+lm_auto_cor <- function(outc,exp,cor,data,only_sig){
   # outc 应该输入一个字符串向量表示结局指标有哪些，如c("MMSE")
   # exp 应该输入一个字符串向量表示暴露指标有哪些，如c("TBIL")
   # cor 应该输入一个list,指定要调整的特定协变量集，如list(c("A"),c("A","B"))
@@ -65,6 +66,9 @@ lm_auto_cor <- function(outc,exp,cor,data){
     }
   }
   # --------------- 模块三：输出结果---------------
-  result$exposure <- rownames(result)
-  return(filter(result,p<0.05)) # 只返回统计学显著的结果
+  if(only_sig == TRUE){
+    return(filter(result,p<0.05)) # 只返回统计学显著的结果
+  } else {
+    return(result) # 返回所有结果
+  }
 }

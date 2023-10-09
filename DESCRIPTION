@@ -1,7 +1,7 @@
 Package: LKM
 Type: Package
 Title: Batch modeling for EpiModelomics
-Version: 0.2.0
+Version: 0.2.1
 Author: Kai Li
 Maintainer: The package maintainer <likaipumc@163.com>
 Description: Batch modeling for EpiModelomics.

@@ -4,7 +4,7 @@
 \alias{lm_cor}
 \title{lm_cor:Batch build linear regression models with specific combinations of covariates.}
 \usage{
-lm_cor(outc, exp, cor, data)
+lm_cor(outc, exp, cor, data, only_sig)
 }
 \arguments{
 \item{outc}{outc should be a vector containing all outcome variables, such as c("A","B").}
@@ -14,6 +14,8 @@ lm_cor(outc, exp, cor, data)
 \item{cor}{cor should be a list containing a specific combination of covariates, such as list(c("E"),c("E","F")).}
 
 \item{data}{data should be a data.frame containing all relevant variables.}
+
+\item{only_sig}{only_sig should be TRUE or FALSE value.}
 }
 \description{
 lm_cor:Batch build linear regression models with specific combinations of covariates.
